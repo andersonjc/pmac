@@ -20,6 +20,20 @@ Traditional project management tools (Jira, Linear, Asana) store data in proprie
 
 📚 **[Read the Complete Methodology](project-management-as-code.md)** - Full documentation of the PMaC approach and workflows.
 
+## Real-World Usage
+
+PMaC is designed for projects where:
+
+- Solo engineers or full teams work with AI coding assistants
+- Requirements evolve frequently
+- Audit trails are important
+- Quality and testing standards are high
+- Context preservation is critical
+
+**Perfect for**: Startups, enterprise features, open source projects, consulting work
+
+**Works with**: Any AI assistant (Claude, GPT, etc.), any tech stack, any team size
+
 ## Quick Start
 
 1. **Get the templates**: Copy PMaC files from the [templates/](templates/) directory
@@ -174,20 +188,6 @@ We welcome contributions to improve PMaC methodology!
 ### For CLI Tool Contributions
 
 CLI tool development happens in the separate [PMaC CLI repository](https://github.com/andersonjc/pmac-cli).
-
-## Real-World Usage
-
-PMaC is designed for projects where:
-
-- Multiple developers work with AI assistants
-- Requirements evolve frequently
-- Audit trails are important
-- Quality and testing standards are high
-- Context preservation is critical
-
-**Perfect for**: Startups, enterprise features, open source projects, consulting work
-
-**Works with**: Any AI assistant (Claude, GPT, etc.), any tech stack, any team size
 
 ## Acknowledgments
 

@@ -4,11 +4,29 @@ A file-based methodology for AI-assisted software development.
 
 ## The Problem
 
-Traditional PM tools (Jira, Linear, Asana) don't integrate with AI assistants. Context gets lost, decisions aren't tracked, and there's no standard way to maintain project continuity when working with AI.
+Traditional PM tools (Jira, Linear, Asana) don't integrate tightly with AI coding assistants. Context gets lost, decisions aren't tracked, and there's no standard way to maintain project continuity when working with AI.
 
 ## The Solution
 
 Version-controlled files that provide complete project context to both humans and AI assistants.
+
+## Key Benefits
+
+- **🤖 AI-Native**: YAML/Markdown format AI assistants can read and update
+- **📝 Complete Audit Trail**: Every decision tracked in version control
+- **⚡ Zero Context Loss**: Resume complex projects with full context
+- **🔄 Git Integration**: PM data evolves alongside code
+- **🏗️ Quality Assurance**: Built-in protocols ensure production-ready code
+
+## PMaC vs Traditional PM
+
+| Aspect           | Traditional Tools  | PMaC                  |
+| ---------------- | ------------------ | --------------------- |
+| AI Integration   | Manual/None        | Native                |
+| Decision Context | Lost               | Complete              |
+| Version Control  | External           | Full Integration      |
+| Audit Trail      | Platform-dependent | Git + prompts + tasks |
+| Quality Control  | External processes | Built-in protocols    |
 
 ## Core Files
 
@@ -19,70 +37,12 @@ Version-controlled files that provide complete project context to both humans an
 | **`project-requirements.md`** | Technical architecture and specifications                 |
 | **`CLAUDE.md`**               | AI assistant instructions and project guidance            |
 
-## Architecture Decision Records (ADRs)
+## Getting Started
 
-PMaC includes standardized Architecture Decision Records (ADRs) for capturing significant architectural decisions throughout the project lifecycle.
-
-### When to Create ADRs
-
-Create ADRs when making decisions about:
-
-- Technology stack choices (frameworks, databases, tools)
-- Architectural patterns and approaches
-- Integration strategies and API designs
-- Security models and authentication approaches
-- Deployment and infrastructure choices
-- Data modeling and database decisions
-
-### ADR Integration with PMaC
-
-ADRs seamlessly integrate with the PMaC workflow:
-
-- **Task-Driven Creation**: ADR creation documented in project backlog tasks
-- **Decision Tracking**: ADRs referenced in task notes and implementation decisions
-- **Complete Audit Trail**: ADR history maintained in Git alongside code changes
-- **Architecture Alignment**: ADRs ensure decisions align with project requirements
-
-### ADR Template and Process
-
-1. **Use Standard Template**: Use the provided ADR template for consistency
-2. **Sequential Numbering**: Number ADRs sequentially (ADR-001, ADR-002, etc.)
-3. **Status Management**: Track status from PROPOSED → ACCEPTED → DEPRECATED/SUPERSEDED
-4. **PMaC Integration**: Reference ADR creation in relevant backlog tasks
-
-### ADR Directory Structure
-
-**Recommended Organization:**
-
-```
-docs/
-└── architecture/
-    ├── README.md                    # ADR index and process documentation
-    ├── ADR-001-technology-stack.md  # Individual ADRs
-    ├── ADR-002-authentication.md
-    └── ADR-003-database-choice.md
-```
-
-**File Naming Convention:**
-
-- Format: `ADR-{number}-{kebab-case-title}.md`
-- Examples: `ADR-001-project-structure.md`, `ADR-002-api-versioning.md`
-- Numbers: Zero-padded to 3 digits (001, 002, etc.)
-
-**ADR Index (README.md):**
-Maintain an index in `docs/architecture/README.md` listing:
-
-- All ADRs with status and brief description
-- ADR process documentation
-- Links to related architectural documentation
-
-## Key Benefits
-
-- **🤖 AI-Native**: YAML/Markdown format AI assistants can read and update
-- **📝 Complete Audit Trail**: Every decision tracked in version control
-- **⚡ Zero Context Loss**: Resume complex projects with full context
-- **🔄 Git Integration**: PM data evolves alongside code
-- **🏗️ Quality Assurance**: Built-in protocols ensure production-ready code
+1. **Get Templates**: Copy PMaC template files from this repository to your project root
+2. **Optional CLI**: Install `npm install -g pmac-cli` for easy setup and enhanced task management
+3. **Customize**: Update files to match your project requirements
+4. **Start Working**: Pick tasks from `project-backlog.yml` and follow PMaC workflow
 
 ## Workflow
 
@@ -188,16 +148,6 @@ phases:
         dependencies: ["SETUP-001"]
 ```
 
-## PMaC vs Traditional PM
-
-| Aspect           | Traditional Tools  | PMaC                  |
-| ---------------- | ------------------ | --------------------- |
-| AI Integration   | Manual/None        | Native                |
-| Decision Context | Lost               | Complete              |
-| Version Control  | External           | Full Integration      |
-| Audit Trail      | Platform-dependent | Git + prompts + tasks |
-| Quality Control  | External processes | Built-in protocols    |
-
 ## PMaC CLI Tool
 
 Optional CLI tool available as NPM package for enhanced workflows:
@@ -215,13 +165,6 @@ pmac viewer                       # Launch interactive viewer
 ```
 
 📚 **Full CLI Documentation**: See [PMaC CLI repository](https://github.com/andersonjc/pmac-cli) for complete features and commands.
-
-## Getting Started
-
-1. **Get Templates**: Copy PMaC template files from this repository to your project root
-2. **Optional CLI**: Install `npm install -g pmac-cli` for easy setup and enhanced task management
-3. **Customize**: Update files to match your project requirements
-4. **Start Working**: Pick tasks from `project-backlog.yml` and follow PMaC workflow
 
 ## Best Practices
 
@@ -245,6 +188,63 @@ pmac viewer                       # Launch interactive viewer
 - Validate all criteria before marking complete
 - Run tests, lint, build before committing
 - Maintain 100% test coverage on new code
+
+## Architecture Decision Records (ADRs)
+
+PMaC includes standardized Architecture Decision Records (ADRs) for capturing significant architectural decisions throughout the project lifecycle.
+
+### When to Create ADRs
+
+Create ADRs when making decisions about:
+
+- Technology stack choices (frameworks, databases, tools)
+- Architectural patterns and approaches
+- Integration strategies and API designs
+- Security models and authentication approaches
+- Deployment and infrastructure choices
+- Data modeling and database decisions
+
+### ADR Integration with PMaC
+
+ADRs seamlessly integrate with the PMaC workflow:
+
+- **Task-Driven Creation**: ADR creation documented in project backlog tasks
+- **Decision Tracking**: ADRs referenced in task notes and implementation decisions
+- **Complete Audit Trail**: ADR history maintained in Git alongside code changes
+- **Architecture Alignment**: ADRs ensure decisions align with project requirements
+
+### ADR Template and Process
+
+1. **Use Standard Template**: Use the provided ADR template for consistency
+2. **Sequential Numbering**: Number ADRs sequentially (ADR-001, ADR-002, etc.)
+3. **Status Management**: Track status from PROPOSED → ACCEPTED → DEPRECATED/SUPERSEDED
+4. **PMaC Integration**: Reference ADR creation in relevant backlog tasks
+
+### ADR Directory Structure
+
+**Recommended Organization:**
+
+```
+docs/
+└── architecture/
+    ├── README.md                    # ADR index and process documentation
+    ├── ADR-001-technology-stack.md  # Individual ADRs
+    ├── ADR-002-authentication.md
+    └── ADR-003-database-choice.md
+```
+
+**File Naming Convention:**
+
+- Format: `ADR-{number}-{kebab-case-title}.md`
+- Examples: `ADR-001-project-structure.md`, `ADR-002-api-versioning.md`
+- Numbers: Zero-padded to 3 digits (001, 002, etc.)
+
+**ADR Index (README.md):**
+Maintain an index in `docs/architecture/README.md` listing:
+
+- All ADRs with status and brief description
+- ADR process documentation
+- Links to related architectural documentation
 
 ## Common Pitfalls
 
