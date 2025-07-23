@@ -1,10 +1,10 @@
 # Project Management as Code (PMaC)
 
-A file-based methodology and toolkit for AI-assisted software development that keeps all project management data version-controlled alongside your codebase.
+A file-based methodology for AI-assisted software development that keeps all project management data version-controlled alongside your codebase.
+
+🛠️ **CLI Tools Available**: Install the [PMaC CLI](https://github.com/andersonjc/pmac-cli) for easy setup and powerful task management: `npm install -g pmac-cli`
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org/)
-[![Tested with Vitest](https://img.shields.io/badge/tested_with-vitest-99424f.svg)](https://vitest.dev/)
 
 ## Why PMaC?
 
@@ -20,114 +20,81 @@ Traditional project management tools (Jira, Linear, Asana) store data in proprie
 
 📚 **[Read the Complete Methodology](project-management-as-code.md)** - Full documentation of the PMaC approach and workflows.
 
+## Real-World Usage
+
+PMaC is designed for projects where:
+
+- Solo engineers or full teams work with AI coding assistants
+- Requirements evolve frequently
+- Audit trails are important
+- Quality and testing standards are high
+- Context preservation is critical
+
+**Perfect for**: Startups, enterprise features, open source projects, consulting work
+
+**Works with**: Any AI assistant (Claude, GPT, etc.), any tech stack, any team size
+
 ## Quick Start
 
-### For New Projects
-
-```bash
-# Clone PMaC template
-git clone https://github.com/andersonjc/pmac.git my-project
-cd my-project
-
-# Install CLI tool
-pnpm add -D yaml tsx @types/node
-
-# Initialize your project files
-cp templates/* .
-# Edit files to match your project
-
-# Start managing tasks
-pnpm pmac list
-```
-
-### For Existing Projects
-
-```bash
-# Add PMaC files to your existing project
-curl -O https://raw.githubusercontent.com/andersonjc/pmac/main/templates/project-backlog.yml
-curl -O https://raw.githubusercontent.com/andersonjc/pmac/main/templates/CLAUDE.md
-curl -O https://raw.githubusercontent.com/andersonjc/pmac/main/templates/prompts-log.md
-
-# Add CLI tool
-pnpm add -D yaml tsx @types/node
-# Copy tools/pmac.ts to your project
-```
+1. **Get the templates**: Copy PMaC files from the [templates/](templates/) directory
+2. **Customize**: Edit files to match your project requirements
+3. **Optional CLI**: Install [PMaC CLI](https://github.com/andersonjc/pmac-cli) for easy setup and enhanced task management: `npm install -g pmac-cli`
 
 ## Core PMaC Files
 
 PMaC uses four interconnected files that work together:
 
-| File | Purpose | Format |
-|------|---------|---------|
-| **`project-backlog.yml`** | Task management, dependencies, status tracking | YAML |
-| **`prompts-log.md`** | Complete conversation history and decisions | Markdown |
-| **`CLAUDE.md`** | AI assistant instructions and project guidance | Markdown |
-| **`project-requirements.md`** | Technical architecture and requirements | Markdown |
+| File                          | Purpose                                        | Format   |
+| ----------------------------- | ---------------------------------------------- | -------- |
+| **`project-backlog.yml`**     | Task management, dependencies, status tracking | YAML     |
+| **`prompts-log.md`**          | Complete conversation history and decisions    | Markdown |
+| **`CLAUDE.md`**               | AI assistant instructions and project guidance | Markdown |
+| **`project-requirements.md`** | Technical architecture and requirements        | Markdown |
 
-## PMaC CLI
+## PMaC CLI Tools
 
-Powerful command-line tool for managing your PMaC workflow:
+For enhanced productivity, install the **[PMaC CLI](https://github.com/andersonjc/pmac-cli)** - a powerful command-line tool and an interactive backlog viewer:
 
 ```bash
-# Task Management
-pnpm pmac list [status] [priority]     # List tasks with filters
-pnpm pmac update TASK-001 in_progress  # Update task status
-pnpm pmac create "New Feature" dev      # Create new task
+# Install globally
+npm install -g pmac-cli
 
-# Project Analysis
-pnpm pmac critical-path                 # Show project critical path
-pnpm pmac validate                      # Validate dependencies
-pnpm pmac phases                        # List all project phases
-
-# Dependencies
-pnpm pmac add-dep TASK-001 SETUP-001   # Add task dependency
-pnpm pmac rm-dep TASK-001 SETUP-001    # Remove dependency
+# Example commands
+pmac list                    # List all tasks
+pmac update TASK-001 done   # Update task status
+pmac viewer                 # Launch interactive viewer
+pmac critical-path          # Show critical path analysis
 ```
 
-## Optional Tools
-
-### Git Pre-Commit Hook
-
-PMaC includes an optional pre-commit hook that enforces PMaC compliance by ensuring PMaC files are updated whenever code changes are committed.
-
-**Installation** (optional):
-```bash
-# Copy the hook to your git hooks directory
-cp tools/resources/pmac-pre-commit-hook .git/hooks/pre-commit
-chmod +x .git/hooks/pre-commit
-```
-
-**What it does**:
-- Detects when code files are being committed
-- Ensures corresponding PMaC files (`project-backlog.yml`, `prompts-log.md`) are also staged
-- Auto-stages modified PMaC files if they exist but aren't staged
-- Blocks commits that don't follow PMaC methodology
-
-**Note**: This hook is a resource for teams that want to enforce PMaC compliance. It's not required to use PMaC methodology.
+📚 **Full CLI Documentation**: See the [PMaC CLI repository](https://github.com/andersonjc/pmac-cli) for complete command reference and features.
 
 ## Development Workflow
 
 ### 1. Pick a Task
+
 ```bash
-pnpm pmac list ready high  # Find high-priority ready tasks
+pmac list ready high  # Find high-priority ready tasks (CLI)
 ```
 
 ### 2. Start Work
+
 ```bash
-pnpm pmac update TASK-001 in_progress "Starting implementation"
+pmac update TASK-001 in_progress "Starting implementation"  # CLI
 git checkout -b feature/TASK-001-description
 ```
 
 ### 3. Follow Protocol
+
 - ✅ Read task requirements and acceptance criteria
 - ✅ Follow technical requirements exactly
 - ✅ Update task notes with implementation decisions
 - ✅ Log all AI prompts in `prompts-log.md`
 
 ### 4. Complete & Validate
+
 ```bash
 # Validate all acceptance criteria met
-pnpm pmac update TASK-001 completed "All criteria validated"
+pmac update TASK-001 completed "All criteria validated"  # CLI
 
 # Commit PMaC files with code changes
 git add .
@@ -143,12 +110,9 @@ git commit -m "TASK-001: Implement feature XYZ
 ```
 your-project/
 ├── project-backlog.yml           # Task management and tracking
-├── prompts-log.md               # Complete conversation history  
+├── prompts-log.md               # Complete conversation history
 ├── CLAUDE.md                    # AI assistant instructions
 ├── project-requirements.md     # Technical requirements
-├── tools/
-│   ├── pmac.ts                 # PMaC CLI tool
-│   └── pmac.test.ts            # CLI tests
 ├── src/                        # Your application code
 └── README.md                   # Project documentation
 ```
@@ -183,7 +147,7 @@ phases:
 PMaC includes a **Senior Engineer Task Execution Protocol**:
 
 1. **📋 Clarify Scope**: Map requirements to specific implementation
-2. **🎯 Locate Insertion Points**: Identify exact files and lines to modify  
+2. **🎯 Locate Insertion Points**: Identify exact files and lines to modify
 3. **⚡ Minimal Changes**: Only code required for acceptance criteria
 4. **✅ Validate Everything**: Run tests, check criteria, verify no regressions
 5. **📝 Document & Update**: Update PMaC files with all changes
@@ -191,18 +155,21 @@ PMaC includes a **Senior Engineer Task Execution Protocol**:
 ## Best Practices
 
 ### For Teams
+
 - Always commit PMaC files with code changes
-- Use task IDs in branch names and commit messages  
+- Use task IDs in branch names and commit messages
 - Include acceptance criteria validation in PRs
 - Review PMaC files during code reviews
 
 ### For AI Collaboration
+
 - Log every prompt and decision in `prompts-log.md`
 - Update task status as work progresses
 - Reference task IDs when asking for help
 - Maintain complete audit trail
 
 ### For Quality
+
 - Write specific, testable acceptance criteria
 - Aim for 100% test coverage on new code
 - Follow the Senior Engineer Protocol religiously
@@ -210,34 +177,17 @@ PMaC includes a **Senior Engineer Task Execution Protocol**:
 
 ## Contributing
 
-We welcome contributions to improve PMaC methodology and tooling!
-
-### Development Setup
-```bash
-git clone https://github.com/andersonjc/pmac.git
-cd pmac
-pnpm install
-pnpm test
-```
+We welcome contributions to improve PMaC methodology!
 
 ### Contributing Guidelines
+
 1. Follow PMaC methodology for all changes
-2. Add tests for new CLI features
-3. Update documentation for methodology changes
-4. Include PMaC file updates in your PRs
+2. Update methodology documentation for conceptual changes
+3. Update templates to reflect best practices
 
-## Real-World Usage
+### For CLI Tool Contributions
 
-PMaC is designed for projects where:
-- Multiple developers work with AI assistants
-- Requirements evolve frequently
-- Audit trails are important
-- Quality and testing standards are high
-- Context preservation is critical
-
-**Perfect for**: Startups, enterprise features, open source projects, consulting work
-
-**Works with**: Any AI assistant (Claude, GPT, etc.), any tech stack, any team size
+CLI tool development happens in the separate [PMaC CLI repository](https://github.com/andersonjc/pmac-cli).
 
 ## Acknowledgments
 
@@ -258,5 +208,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ---
 
 **Ready to try PMaC?** Start with the [complete methodology guide](project-management-as-code.md) or dive into the [template files](templates/).
+Install the [PMaC CLI](https://github.com/andersonjc/pmac-cli) for easy setup and powerful task management: `npm install -g pmac-cli`
 
 Built for the era of AI-assisted development. 🚀
