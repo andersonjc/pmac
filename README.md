@@ -2,11 +2,9 @@
 
 A file-based methodology for AI-assisted software development that keeps all project management data version-controlled alongside your codebase.
 
-🛠️ **CLI Tools Available**: Install the [PMaC CLI](https://github.com/andersonjc/pmac-cli) for powerful task management: `npm install -g pmac-cli`
+🛠️ **CLI Tools Available**: Install the [PMaC CLI](https://github.com/andersonjc/pmac-cli) for easy setup and powerful task management: `npm install -g pmac-cli`
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://typescriptlang.org/)
-[![Tested with Vitest](https://img.shields.io/badge/tested_with-vitest-99424f.svg)](https://vitest.dev/)
 
 ## Why PMaC?
 
@@ -24,34 +22,9 @@ Traditional project management tools (Jira, Linear, Asana) store data in proprie
 
 ## Quick Start
 
-### For New Projects
-
-```bash
-# Install PMaC CLI (optional but recommended)
-npm install -g pmac-cli
-
-# Initialize your project files
-pmac init my-project
-cd my-project
-# Edit files to match your project
-
-# Start managing tasks (with CLI)
-pmac list
-```
-
-### For Existing Projects
-
-```bash
-# Install PMaC CLI (optional but recommended)
-npm install -g pmac-cli
-
-# Add PMaC files to your existing project
-pmac init --existing
-# Edit files to match your project
-
-# Start managing tasks (with CLI)
-pmac list
-```
+1. **Get the templates**: Copy PMaC files from the [templates/](templates/) directory
+2. **Customize**: Edit files to match your project requirements
+3. **Optional CLI**: Install [PMaC CLI](https://github.com/andersonjc/pmac-cli) for easy setup and enhanced task management: `npm install -g pmac-cli`
 
 ## Core PMaC Files
 
@@ -190,23 +163,17 @@ PMaC includes a **Senior Engineer Task Execution Protocol**:
 
 ## Contributing
 
-We welcome contributions to improve PMaC methodology and tooling!
-
-### Development Setup
-
-```bash
-git clone https://github.com/andersonjc/pmac.git
-cd pmac
-pnpm install
-pnpm test
-```
+We welcome contributions to improve PMaC methodology!
 
 ### Contributing Guidelines
 
 1. Follow PMaC methodology for all changes
-2. Add tests for new CLI features
-3. Update documentation for methodology changes
-4. Include PMaC file updates in your PRs
+2. Update methodology documentation for conceptual changes
+3. Update templates to reflect best practices
+
+### For CLI Tool Contributions
+
+CLI tool development happens in the separate [PMaC CLI repository](https://github.com/andersonjc/pmac-cli).
 
 ## Real-World Usage
 
@@ -241,6 +208,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ---
 
 **Ready to try PMaC?** Start with the [complete methodology guide](project-management-as-code.md) or dive into the [template files](templates/).
-Install the [PMaC CLI](https://github.com/andersonjc/pmac-cli) for powerful task management: `npm install -g pmac-cli`
+Install the [PMaC CLI](https://github.com/andersonjc/pmac-cli) for easy setup and powerful task management: `npm install -g pmac-cli`
 
 Built for the era of AI-assisted development. 🚀

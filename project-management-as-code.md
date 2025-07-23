@@ -200,25 +200,28 @@ phases:
 
 ## PMaC CLI Tool
 
-Optional TypeScript CLI for enhanced workflows:
+Optional CLI tool available as NPM package for enhanced workflows:
 
 ```bash
 # Installation
-pnpm add -D yaml tsx @types/node
+npm install -g pmac-cli
 
 # Key Commands
 pmac list [status] [priority]    # List filtered tasks
 pmac update TASK-001 in_progress # Update status
 pmac validate                     # Check dependencies
 pmac critical-path                # Show critical path
+pmac viewer                       # Launch interactive viewer
 ```
+
+📚 **Full CLI Documentation**: See [PMaC CLI repository](https://github.com/andersonjc/pmac-cli) for complete features and commands.
 
 ## Getting Started
 
-1. **Initialize Files**: Copy PMaC templates to your project root
-2. **Install CLI**: `pnpm add -D yaml tsx @types/node`
-3. **Configure**: Add `"pmac": "tsx tools/pmac.ts"` to package.json scripts
-4. **Start Working**: Pick tasks from `project-backlog.yml` and follow workflow
+1. **Get Templates**: Copy PMaC template files from this repository to your project root
+2. **Optional CLI**: Install `npm install -g pmac-cli` for easy setup and enhanced task management
+3. **Customize**: Update files to match your project requirements
+4. **Start Working**: Pick tasks from `project-backlog.yml` and follow PMaC workflow
 
 ## Best Practices
 

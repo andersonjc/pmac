@@ -56,12 +56,7 @@ pmac viewer                   # Launch interactive viewer
 
 📚 **Full CLI Documentation**: See [PMaC CLI repository](https://github.com/andersonjc/pmac-cli) for complete command reference.
 
-**Testing & Quality:**
-```bash
-pnpm test                       # Run all tests
-pnpm lint                   # Run linting  
-pnpm build                  # Build project
-```
+**Note**: This repository contains PMaC methodology documentation only. For actual development projects, install project-specific testing and build tools.
 
 ## Quality Standards
 
