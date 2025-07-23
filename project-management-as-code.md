@@ -15,7 +15,7 @@ Version-controlled files that provide complete project context to both humans an
 | File                          | Purpose                                                   |
 | ----------------------------- | --------------------------------------------------------- |
 | **`project-backlog.yml`**     | Tasks, dependencies, status tracking, acceptance criteria |
-| **`prompts-log.md`**          | User prompts only - verbatim conversation log            |
+| **`prompts-log.md`**          | User prompts only - verbatim conversation log             |
 | **`project-requirements.md`** | Technical architecture and specifications                 |
 | **`CLAUDE.md`**               | AI assistant instructions and project guidance            |
 
@@ -26,6 +26,7 @@ PMaC includes standardized Architecture Decision Records (ADRs) for capturing si
 ### When to Create ADRs
 
 Create ADRs when making decisions about:
+
 - Technology stack choices (frameworks, databases, tools)
 - Architectural patterns and approaches
 - Integration strategies and API designs
@@ -38,7 +39,7 @@ Create ADRs when making decisions about:
 ADRs seamlessly integrate with the PMaC workflow:
 
 - **Task-Driven Creation**: ADR creation documented in project backlog tasks
-- **Decision Tracking**: ADRs referenced in task notes and implementation decisions  
+- **Decision Tracking**: ADRs referenced in task notes and implementation decisions
 - **Complete Audit Trail**: ADR history maintained in Git alongside code changes
 - **Architecture Alignment**: ADRs ensure decisions align with project requirements
 
@@ -52,6 +53,7 @@ ADRs seamlessly integrate with the PMaC workflow:
 ### ADR Directory Structure
 
 **Recommended Organization:**
+
 ```
 docs/
 └── architecture/
@@ -62,12 +64,14 @@ docs/
 ```
 
 **File Naming Convention:**
+
 - Format: `ADR-{number}-{kebab-case-title}.md`
 - Examples: `ADR-001-project-structure.md`, `ADR-002-api-versioning.md`
 - Numbers: Zero-padded to 3 digits (001, 002, etc.)
 
 **ADR Index (README.md):**
 Maintain an index in `docs/architecture/README.md` listing:
+
 - All ADRs with status and brief description
 - ADR process documentation
 - Links to related architectural documentation
@@ -98,6 +102,7 @@ Maintain an index in `docs/architecture/README.md` listing:
 ### Timestamp Standards
 
 **All PMaC files must use consistent local timezone format:**
+
 - **Format**: `YYYY-MM-DD HH:MM:SS a.m./p.m. EDT` (e.g., "2025-06-24 03:25:00 p.m. EDT")
 - **Source**: JavaScript `new Date().toLocaleString('en-CA', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'}).replace(',', '')`
 - **Application**: Both prompts-log.md manual entries and PMaC CLI automated timestamps
@@ -111,14 +116,16 @@ Maintain an index in `docs/architecture/README.md` listing:
 
 ### File Separation Guidelines
 
-**prompts-log.md**: 
+**prompts-log.md**:
+
 - User prompts ONLY, verbatim
 - Minimal context, just timestamp and prompt text
 - No analysis, decisions, or implementation details
 
 **project-backlog.yml** (via PMaC CLI):
+
 - Implementation decisions and rationale
-- Technical milestones and progress notes  
+- Technical milestones and progress notes
 - Architecture decisions and trade-offs
 - ADR creation and references
 - Test results and validation status
@@ -155,7 +162,7 @@ project-root/
 ## Quality Standards
 
 - **Tests**: 100% coverage on new code, all tests pass
-- **Dependencies**: Validate with `pnpm pmac validate`
+- **Dependencies**: Validate with `pmac validate`
 - **Documentation**: Update with all code changes
 - **Security**: Input validation, secure patterns, audit logs
 
@@ -200,10 +207,10 @@ Optional TypeScript CLI for enhanced workflows:
 pnpm add -D yaml tsx @types/node
 
 # Key Commands
-pnpm pmac list [status] [priority]    # List filtered tasks
-pnpm pmac update TASK-001 in_progress # Update status
-pnpm pmac validate                     # Check dependencies
-pnpm pmac critical-path                # Show critical path
+pmac list [status] [priority]    # List filtered tasks
+pmac update TASK-001 in_progress # Update status
+pmac validate                     # Check dependencies
+pmac critical-path                # Show critical path
 ```
 
 ## Getting Started

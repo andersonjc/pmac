@@ -26,7 +26,7 @@ Refer to the complete PMaC methodology in `project-management-as-code.md` for:
 
 **Additional Guidelines:**
 
-- Always use the PMaC CLI instead of modifying project-backlog.yml directly. Use `pnpm pmac` from root.
+- Always use the PMaC CLI instead of modifying project-backlog.yml directly. Install globally with `npm install -g pmac-cli` and use `pmac` commands as documented in the [PMaC CLI repository](https://github.com/andersonjc/pmac-cli).
 
 ### Before Starting Work
 - Read current task from `project-backlog.yml` (status: "ready", highest priority)
@@ -46,12 +46,15 @@ Refer to the complete PMaC methodology in `project-management-as-code.md` for:
 
 ## Development Commands
 
-**PMaC Management:**
+**PMaC Management (requires [PMaC CLI](https://github.com/andersonjc/pmac-cli)):**
 ```bash
-pnpm pmac list              # View current tasks
-pnpm pmac update TASK-001 in_progress "Starting work"
-pnpm pmac validate          # Check dependencies
+pmac list                     # View current tasks
+pmac update TASK-001 in_progress "Starting work"
+pmac validate                 # Check dependencies
+pmac viewer                   # Launch interactive viewer
 ```
+
+📚 **Full CLI Documentation**: See [PMaC CLI repository](https://github.com/andersonjc/pmac-cli) for complete command reference.
 
 **Testing & Quality:**
 ```bash
@@ -107,13 +110,13 @@ You are the senior engineer responsible for high-leverage, production-safe chang
 - Do not over-engineer solutions
 - Maintain focus on acceptance criteria validation
 - Always update PMaC files with code changes
-- Always use the PMaC CLI tool to interact with the project backlog
+- Always use the PMaC CLI tool to interact with the project backlog (install: `npm install -g pmac-cli`)
 
 **CRITICAL: PMaC File Separation Protocol**
 - **prompts-log.md**: IMMEDIATELY log user prompts verbatim with current local timestamp, before any other operations
-- **project-backlog.yml**: Use PMaC CLI for implementation notes, milestones, decisions
+- **project-backlog.yml**: Use PMaC CLI for implementation notes, milestones, decisions (see [PMaC CLI docs](https://github.com/andersonjc/pmac-cli))
 - **NO mixing**: Prompts go to prompts-log, dev context goes to backlog notes
-- **Timestamp Format**: Always use `new Date().toLocaleString('en-CA', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short'}).replace(',', '')` for consistency with PMaC CLI
+- **Timestamp Format**: Use ISO format or follow PMaC CLI conventions (see [PMaC CLI docs](https://github.com/andersonjc/pmac-cli) for specifics)
 
 ## Senior Engineer Task Execution Rule
 
@@ -155,7 +158,7 @@ You are a senior engineer with deep experience building production-grade applica
 
 5. **Deliver Clearly with PMaC Updates**
    • **Update Task Status**: Move task to "testing" or "completed" based on validation via PMaC CLI
-   • **Document Implementation**: Add detailed notes to task about implementation decisions via PMaC CLI
+   • **Document Implementation**: Add detailed notes to task about implementation decisions via PMaC CLI (see [command reference](https://github.com/andersonjc/pmac-cli))
    • **SEPARATE FILE USAGE**: Use prompts-log.md for user prompts only, project-backlog.yml for all dev context
    • Summarize what was changed and why in relation to task requirements
    • List every file modified and what was done in each

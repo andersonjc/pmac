@@ -48,24 +48,29 @@ cp .env.example .env
 
 ### PMaC CLI (Project Management)
 
-This project includes a CLI tool for managing PMaC workflows:
+Install the PMaC CLI for enhanced project management:
 
 ```bash
+# Install PMaC CLI globally (recommended)
+npm install -g pmac-cli
+
 # View current tasks
-pnpm pmac list
+pmac list
 
 # Update task status
-pnpm pmac update TASK-001 in_progress "Starting implementation"
+pmac update TASK-001 in_progress "Starting implementation"
+
+# Launch interactive viewer
+pmac viewer
 
 # View critical path
-pnpm pmac critical-path
-
-# Validate dependencies
-pnpm pmac validate
+pmac critical-path
 
 # See all available commands
-pnpm pmac help
+pmac help
 ```
+
+📚 **Full CLI Documentation**: [PMaC CLI Repository](https://github.com/andersonjc/pmac-cli)
 
 ## Architecture Overview
 
@@ -102,9 +107,9 @@ pnpm lint         # Run linting
 pnpm format       # Format code
 pnpm typecheck    # Type checking (if using TypeScript)
 
-# PMaC Management
-pnpm pmac list    # View tasks
-pnpm pmac help    # PMaC CLI help
+# PMaC Management (requires: npm install -g pmac-cli)
+pmac list    # View tasks
+pmac help    # PMaC CLI help
 ```
 
 ### Testing
@@ -133,9 +138,6 @@ pnpm test:coverage
 ├── prompts-log.md                   # Decision log
 ├── CLAUDE.md                        # AI instructions
 ├── [project]-requirements.md        # Technical requirements
-├── tools/
-│   ├── pmac.ts                      # PMaC CLI tool
-│   └── pmac.test.ts                 # CLI tests
 ├── [src/app/lib/etc.]/              # Application code
 ├── tests/                           # Test files
 ├── docs/                            # Additional documentation
@@ -149,7 +151,7 @@ pnpm test:coverage
 1. **Review PMaC files**: Understand current project state
 2. **Choose a task**: Pick a "ready" task from `project-backlog.yml`
 3. **Create feature branch**: `git checkout -b feature/TASK-ID-description`
-4. **Update task status**: Mark as "in_progress" using PMaC CLI
+4. **Update task status**: Mark as "in_progress" using PMaC CLI (`pmac update TASK-ID in_progress`)
 5. **Implement changes**: Follow acceptance criteria exactly
 6. **Update PMaC files**: Document decisions and update task status
 7. **Create pull request**: Include PMaC file updates
@@ -176,7 +178,7 @@ pnpm test:coverage
 ### Environments
 
 - **Development**: [Description and URL if applicable]
-- **Staging**: [Description and URL if applicable]  
+- **Staging**: [Description and URL if applicable]
 - **Production**: [Description and URL if applicable]
 
 ### Deployment Commands
